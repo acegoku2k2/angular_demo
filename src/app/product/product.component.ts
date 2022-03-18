@@ -21,6 +21,7 @@ export class ProductComponent implements OnInit {
   onSubmit(data: any){
     console.log(data);
     console.log(data);
+    console.log(data);
   }
 
   onChange(event: any,key: string){
