@@ -9,13 +9,13 @@
     <div class="col-lg-6 col-md-12">
       <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value)">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Tên sản phẩm" [(ngModel)]="newProduct.name" name="name" (input)="onChange($event, 'name')">
+          <input type="text" class="form-control" placeholder="Name" [(ngModel)]="newProduct.name" name="name">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Mô tả sản phẩm" [(ngModel)]="newProduct.description" name="description" (input)="onChange($event, 'description')">
+          <input type="text" class="form-control" placeholder="Description" [(ngModel)]="newProduct.description" name="description">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Giá sản phẩm" [(ngModel)]="newProduct.price" name="price" (input)="onChange($event, 'price')">
+          <input type="text" class="form-control" placeholder="Price" [(ngModel)]="newProduct.price" name="price">
         </div>
         <div class="form-group">
           <button class="btn btn-outline-primary" type="submit">Tạo mới</button>
@@ -26,18 +26,22 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>Tên sản phấm</th>
-            <th>Mô tả</th>
-            <th>Giá</th>
-            <th>Action</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Iphone 12</td>
-            <td>Mô tả Iphone</td>
-            <td>12000000</td>
-            <td></td>
+          <tr *ngFor="let product of fillterProduct">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td>
+              <button type="button" class="btn btn-danger" (click)="edit(product)">Edit</button>
+              <button type="button" class="btn btn-primary" (click)="remove(product.id)">Delete</button>
+            </td>
           </tr>
         </tbody>
       </table>
