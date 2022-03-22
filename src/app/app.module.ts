@@ -9,12 +9,15 @@ import { UserComponent } from './user/user.component';
 import { ProductComponent } from './product/product.component';
 // import thành phần form
 import {FormsModule} from '@angular/forms';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     UserComponent,
     ProductComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
